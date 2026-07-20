@@ -19,5 +19,5 @@ setopt PUSHD_SILENT
 setopt INTERACTIVE_COMMENTS
 setopt NO_BEEP
 
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR=vim
+export VISUAL=vim
