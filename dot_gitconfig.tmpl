@@ -1,0 +1,19 @@
+[user]
+name = Keisuke Shimokawa
+email = {{ .email }}
+[diff]
+tool = difftastic
+[difftool "difftastic"]
+cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+difftool = true
+[alias]
+dft = difftool
+dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+st = status
+co = checkout
+prune-remote-absent = "!git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d"
+[push]
+	autoSetupRemote = true
+[core]
+	excludesfile = ~/.gitignore_global
