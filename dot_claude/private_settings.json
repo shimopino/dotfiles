@@ -1,0 +1,48 @@
+{
+  "env": {
+    "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": []
+  },
+  "model": "fable",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/shimopino/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "language": "ずんだもんっぽい日本語",
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "editorMode": "vim",
+  "verbose": true,
+  "preferredNotifChannel": "terminal_bell",
+  "effort": "high",
+  "agentPushNotifEnabled": true
+}
