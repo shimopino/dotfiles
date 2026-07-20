@@ -1,0 +1,116 @@
+# mise upgrade --interactive --bump
+# --bump: 設定ファイル側も新しいものに更新する
+
+# mise settings set github.credential_command "gh auth token"
+# mise token github
+
+[tools]
+deno = "latest"
+gradle = "9.5.1"
+java = "corretto-21.0.11.10.1"
+node = "26.3.0"
+aws = "latest"
+gh = "latest"
+jujutsu = "latest"
+bun = "latest"
+terraform = "latest"
+worktrunk = "latest"
+gcloud = "latest"
+
+# brew install する
+# "1password-cli" = "latest"
+# llama.app (llama.cpp の macOS メニューバーアプリ)
+# brew install --cask llama-app
+
+"npm:playwright" = "latest"
+"npm:@playwright/cli" = "latest"
+"npm:@marp-team/marp-cli" = "latest"
+"npm:@evenrealities/even-terminal" = "latest"
+
+# 個別の環境を管理するための devbox ツールを使用する
+"github:jetify-com/devbox" = "latest"
+
+"github:modem-dev/hunk" = "latest"
+
+###########################
+### 生成AI 関連のツール ###
+###########################
+# "npm:@anthropic-ai/claude-code" = "latest"
+"npm:@anthropic-ai/claude-code" = { version = "latest", npm_args = "--ignore-scripts=false" }
+"npm:@google/gemini-cli" = "latest"
+"npm:@openai/codex" = "latest"
+"npm:@github/copilot" = "latest"
+"npm:@mizchi/readability" = "latest"
+"npm:ccusage" = "latest"
+"npm:agent-browser" = "latest"
+"npm:repomix" = "latest"
+"npm:skillgrade" = "latest"
+"npm:@earendil-works/pi-coding-agent" = "latest"
+"github:anomalyco/opencode" = "latest"
+"github:microsoft/apm" = "latest"
+# "github:microsoft/waza" = "latest"
+"github:microsoft/waza" = { version = "latest", rename_exe = "waza", tag_regex = "^azd-ext-microsoft-azd-waza_" }
+"github:rtk-ai/rtk" = "latest"
+# curl -fsSL https://browser-use.com/cli/install.sh | bash
+"pipx:browser-use" = "latest"
+# https://github.com/docling-project/docling
+"pipx:docling-slim" = "latest"
+
+# hermes-agent のみを管理して、環境変数などは別で扱うようにする
+"pipx:hermes-agent" = "latest"
+
+# SkillSpector
+"pipx:git+https://github.com/NVIDIA/SkillSpector.git@main" = "latest"
+
+herdr = "latest"
+starship = "latest"
+atuin = "latest"
+zoxide = "latest"
+fzf = "latest"
+"cargo:eza" = "latest"
+"cargo:sheldon" = "latest"
+chezmoi = "latest"
+
+# mise で管理できないものがあればコメントアウトでメモとして記録しておく
+# curl -fsSL https://vite.plus | bash
+# node.js 自体は mise で管理していく
+
+# curl -L https://dmtrkovalenko.dev/install-fff-mcp.sh | bash
+# MCP 専用にエイリアスを作成
+# fff-mcp = { backend = "github:dmtrKovalenko/fff", version = "latest", matching = "fff-mcp" }
+
+###########################
+### MacOS 関連のツール ###
+###########################
+# mise plugin install xcode https://github.com/qasim/mise-xcode
+# Xcode 26.5 を指定
+# xcode = "26.5"
+
+# 必要に応じてSwift関連ツールも一緒に管理
+# swiftlint = "0.58.0" # 最新安定版を確認して調整
+# swiftformat = "0.56.0"
+# "spm:swiftlang/swift-format" = "latest"   # SPMツールも可
+
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = ["python"]
+
+[settings.github]
+credential_command = "gh auth token"
+github_attestations = false
+
+
+[tasks.worktree-create]
+description = "Interactively create a managed git worktree under .worktrees and open it in Zed"
+run = "bash ~/.config/mise/scripts/worktree-create-interactive.sh"
+interactive = true
+
+[tasks.worktree-open]
+description = "Interactively select a managed git worktree under .worktrees and open it in Zed"
+run = "bash ~/.config/mise/scripts/worktree-open-interactive.sh"
+interactive = true
+
+[tasks.worktree-remove]
+description = "Interactively remove a managed git worktree under .worktrees"
+run = "bash ~/.config/mise/scripts/worktree-remove-interactive.sh"
+interactive = true
