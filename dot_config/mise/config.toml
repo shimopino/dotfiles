@@ -119,3 +119,8 @@ interactive = true
 description = "Interactively remove a managed git worktree under .worktrees"
 run = "bash ~/.config/mise/scripts/worktree-remove-interactive.sh"
 interactive = true
+
+[tasks.dotfiles-sync]
+description = "Interactively sync chezmoi dotfiles: review drift, re-add/apply per file, commit & push"
+run = "bash ~/.config/mise/scripts/dotfiles-sync-interactive.sh"
+interactive = true
