@@ -1,0 +1,122 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  // Agent Panel の活用はしたいが、コードの補完は出さないようにする
+  "show_completions_on_input": true, // LSP 補完の自動表示
+  "show_edit_predictions": false, // AI による inline 予測補完を非表示にする
+  "disable_ai": false, // Agent など他の AI 機能はそのまま使える
+
+  // ファイル保存時にフォーマットを適用する
+  "format_on_save": "on",
+  "formatter": "auto",
+
+  "cli_default_open_behavior": "new_window",
+  "git_panel": {
+    "tree_view": true,
+    "dock": "left",
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+    "sidebar_side": "right",
+  },
+  "edit_predictions": {
+    "provider": "zed",
+  },
+  "agent_servers": {
+    "gemini": {
+      "type": "registry",
+    },
+    "opencode": {
+      "default_config_options": {
+        "model": "opencode-go/glm-5.2",
+      },
+      "favorite_config_option_values": {
+        "model": [
+          "opencode-go/deepseek-v4-pro",
+          "opencode-go/deepseek-v4-flash",
+          "opencode-go/kimi-k2.6",
+          "opencode-go/minimax-m3",
+          "opencode-go/qwen3.7-max",
+          "opencode-go/qwen3.7-plus",
+          "opencode-go/kimi-k2.7-code",
+          "opencode-go/glm-5.2",
+        ],
+      },
+      "type": "registry",
+    },
+    "codex-acp": {
+      "default_config_options": {
+        "model": "gpt-5.6-luna",
+      },
+      "favorite_config_option_values": {
+        "mode": ["auto"],
+      },
+      "type": "registry",
+    },
+    "claude-acp": {
+      "default_config_options": {
+        "model": "fable",
+        "mode": "auto",
+        "effort": "medium",
+      },
+      "favorite_config_option_values": {
+        "model": ["default"],
+      },
+      "type": "registry",
+    },
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+  "lsp": {
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          "includeInlayParameterNameHints": "all",
+          "includeInlayVariableTypeHints": true,
+        },
+      },
+    },
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+  },
+  "hover_popover_enabled": true,
+  "preview_tabs": {
+    "enabled": false,
+  },
+
+  // v1.9 から導入された テキスト検索ピッカー
+  "file_finder": {
+    "modal_max_width": "xlarge",
+    "file_icons": true,
+    "skip_focus_for_active_in_search": true,
+  },
+
+  // herdr
+  "terminal": {
+    // "shell": {
+    //   "with_arguments": {
+    //     "program": "/bin/zsh",
+    //     "args": ["-l", "-c", "eval \"$(mise activate zsh)\" && herdr"],
+    //   },
+    // },
+    "font_family": "Hack Nerd Font Mono",
+    "font_size": 16,
+  },
+}
