@@ -1,0 +1,29 @@
+# COPILOT 分岐: Copilot Chat から呼ばれた場合は最小構成で終了
+if [[ -n "$COPILOT" ]]; then
+  export PS1='$ '
+  return
+fi
+
+eval "$(mise activate zsh)"
+# mise activate は PATH 反映を初回プロンプトまで遅延するため、
+# この場で eager に反映して以降の sheldon/starship 等を解決できるようにする
+eval "$(mise hook-env -s zsh)"
+
+for f in "$ZDOTDIR"/conf.d/*.zsh; do source "$f"; done
+
+[[ -f "$ZDOTDIR/secrets.zsh" ]] && source "$ZDOTDIR/secrets.zsh"
+
+eval "$(sheldon source)"
+
+# 補完: fpath がすべて揃った後に1回だけ
+autoload -Uz compinit
+mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+
+eval "$(zoxide init zsh)"
+# fzf 0.74.0 + zsh 5.9: options 復元処理が "zle" キーを setopt しようとして
+# "can't change option: zle" を出す既知の無害なバグ（zsh -f の素の環境でも再現）。
+# stderr を抑制して黙らせる。
+eval "$(fzf --zsh)" 2>/dev/null
+eval "$(starship init zsh)"
+eval "$(atuin init zsh)"   # 最後: Ctrl-R を atuin が上書き
