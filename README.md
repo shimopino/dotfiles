@@ -20,7 +20,12 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply shimopino
 - Claude Code（settings / CLAUDE.md / RTK.md / herdr hook）
   - `herdr-agent-state.sh` は herdr が再生成し得るため、更新されたら `chezmoi re-add` すること
 - zsh 本体（`.zshenv` / `ZDOTDIR` 配下の `.zshrc` / `.zprofile` / `conf.d/*.zsh`）
-  - `~/.config/zsh/secrets.zsh` は秘密情報を含むためローカルのみで管理し、chezmoi の管理対象外
+- secrets（`~/.config/zsh/secrets.zsh`）
+  - リポジトリには 1Password への参照式（`op://Development/...`）のみを置き、値は `chezmoi apply` 時に
+    1Password CLI（`op`）経由で解決して生成する。値そのものはリポジトリに一切含まれない
+  - 新マシンでは 1Password.app にサインイン → 設定 → 開発者 → 「1Password CLI と連携」を ON にしてから
+    `chezmoi apply` を再実行する（op が無い間は secrets はコメントのみで生成される）
+  - 値の変更は 1Password 側で行い、`chezmoi apply` で反映する（ファイル直編集はドリフトになる）
 - git（`.gitconfig` はテンプレート化。`user.email` は初回 `init` 時にプロンプトされ `~/.config/chezmoi/chezmoi.toml` に保存）と `.gitignore_global`
 - Homebrew パッケージ（`Brewfile`、`brew bundle` で導入。apply 対象外で bootstrap スクリプトからのみ参照）
 

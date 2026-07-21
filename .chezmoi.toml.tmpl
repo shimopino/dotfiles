@@ -1,3 +1,8 @@
 {{- $email := promptStringOnce . "email" "git email address" -}}
 [data]
     email = {{ $email | quote }}
+
+[onepassword]
+    # 1Password.app の CLI 統合（生体認証）前提。chezmoi 側の op signin 試行は
+    # authorization timeout になるためスキップし、op の呼び出し時認可に任せる
+    prompt = false
