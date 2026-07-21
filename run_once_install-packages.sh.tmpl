@@ -1,5 +1,5 @@
 #!/bin/bash
-# Bootstrap: install Homebrew packages, mise tools, and rustup
+# Bootstrap: install Homebrew packages, rustup, and mise tools
 set -eu
 
 if ! command -v brew >/dev/null 2>&1 && [ ! -x /opt/homebrew/bin/brew ]; then
@@ -8,11 +8,13 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --no-upgrade --file="{{ .chezmoi.sourceDir }}/Brewfile"
 
+# rustup は mise install より先に入れる（cargo:eza / cargo:sheldon が cargo を必要とするため）
+if [ ! -f "$HOME/.cargo/env" ]; then
+  curl --proto '=https' --tlsv1.2 -fsS https://sh.rustup.rs | sh -s -- -y --no-modify-path
+fi
+. "$HOME/.cargo/env"
+
 if ! command -v mise >/dev/null 2>&1 && [ ! -x "$HOME/.local/bin/mise" ]; then
   curl -fsSL https://mise.run | sh
 fi
 PATH="$HOME/.local/bin:$PATH" mise install --yes
-
-if [ ! -f "$HOME/.cargo/env" ]; then
-  curl --proto '=https' --tlsv1.2 -fsSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-fi
