@@ -1,0 +1,19 @@
+{
+  "providers": {
+    "llamacpp": {
+      "baseUrl": "http://localhost:8000/v1",
+      "api": "openai-completions",
+      "apiKey": "dummy",
+      "models": [
+        {
+          "id": "agents-a1-4b-q4km",
+          "name": "Agents-A1-4B Q4_K_M (llama.cpp local)",
+          "reasoning": true,
+          "contextWindow": 32768,
+          "maxTokens": 8192
+        }
+      ]
+    }
+  }
+}
+

@@ -28,5 +28,8 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply shimopino
   - 値の変更は 1Password 側で行い、`chezmoi apply` で反映する（ファイル直編集はドリフトになる）
 - git（`.gitconfig` はテンプレート化。`user.email` は初回 `init` 時にプロンプトされ `~/.config/chezmoi/chezmoi.toml` に保存）と `.gitignore_global`
 - Homebrew パッケージ（`Brewfile`、`brew bundle` で導入。apply 対象外で bootstrap スクリプトからのみ参照）
+- [pi](https://github.com/earendil-works/pi-coding-agent)（`~/.pi/agent/settings.json` / `models.json` / herdr 拡張、`~/.pi/even-gateway/config.json`）
+  - gateway の token / soniox キーは 1Password 参照のテンプレート。`auth.json`・`models-store.json`・
+    sessions・memory・event-logs などの秘密/状態系は管理対象外
 
 今後、他のツールの設定も順次追加予定です。

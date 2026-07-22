@@ -1,0 +1,24 @@
+{
+  "lastChangelogVersion": "0.80.10",
+  "packages": [
+    {
+      "source": "npm:pi-opencode-bridge",
+      "extensions": [
+        "-index.ts"
+      ]
+    },
+    "npm:pi-web-access",
+    {
+      "source": "npm:pi-hermes-memory",
+      "extensions": [
+        "-src/index.ts"
+      ]
+    },
+    "npm:@ff-labs/pi-fff"
+  ],
+  "defaultProvider": "llamacpp",
+  "defaultModel": "agents-a1-4b-q4km",
+  "theme": "dark",
+  "defaultThinkingLevel": "high",
+  "hideThinkingBlock": false
+}
