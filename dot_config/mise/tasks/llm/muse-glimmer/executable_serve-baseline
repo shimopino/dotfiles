@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#MISE description="Muse Glimmer 30BをDFlashなしで起動"
+#MISE alias="muse-glimmer:serve-baseline"
+#MISE raw=true
+
+set -euo pipefail
+
+task_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+source "$task_dir/_model.sh"
+
+if [[ ! -f "$MAIN_MODEL" ]]; then
+  echo "モデルがありません: $MAIN_MODEL" >&2
+  echo "先に実行してください: mise run llm:muse-glimmer:download" >&2
+  exit 1
+fi
+
+exec llama-server \
+  --model "$MAIN_MODEL" \
+  --n-gpu-layers all \
+  --ctx-size 65536 \
+  --flash-attn on \
+  --cache-type-k q8_0 \
+  --cache-type-v q8_0 \
+  --jinja \
+  --parallel 1 \
+  --alias muse-glimmer-30B \
+  --host 127.0.0.1 \
+  --port 8080 \
+  --temp 1.0 \
+  --top-p 0.95 \
+  --top-k 64

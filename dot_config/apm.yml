@@ -1,0 +1,20 @@
+name: shimopino
+version: 1.0.0
+description: Globally managed agent skills (deployed via `apm install -g`)
+author: Keisuke Shimokawa
+# claude / codex / opencode はネイティブターゲット。
+# pi は APM のターゲットに存在しないが、agent-skills が展開する
+# ~/.agents/skills/ を pi がグローバルスキルとして読み込む。
+targets:
+- claude
+- codex
+- opencode
+- agent-skills
+dependencies:
+  apm:
+  # skills/ はリリースタグ (v0.9.1) に含まれず main にのみ存在するため、
+  # タグではなくコミット SHA でピン留めする (apm update で更新)
+  - ix-infrastructure/ix/skills/ix#2e246e87995fd0733edd9d6727c30b89db897a12
+  mcp: []
+includes: auto
+scripts: {}
