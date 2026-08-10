@@ -12,3 +12,9 @@ github = "zsh-users/zsh-syntax-highlighting"
 
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
+
+# プロンプト: pure.zsh は source 時に自身をセットアップするため promptinit 不要。
+# async.zsh を先に読み込む必要があるので use の順序を維持すること
+[plugins.pure]
+github = "sindresorhus/pure"
+use = ["async.zsh", "pure.zsh"]

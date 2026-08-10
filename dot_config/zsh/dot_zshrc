@@ -6,12 +6,19 @@ fi
 
 eval "$(mise activate zsh)"
 # mise activate は PATH 反映を初回プロンプトまで遅延するため、
-# この場で eager に反映して以降の sheldon/starship 等を解決できるようにする
+# この場で eager に反映して以降の sheldon 等を解決できるようにする
 eval "$(mise hook-env -s zsh)"
 
 for f in "$ZDOTDIR"/conf.d/*.zsh; do source "$f"; done
 
 [[ -f "$ZDOTDIR/secrets.zsh" ]] && source "$ZDOTDIR/secrets.zsh"
+
+# Pure プロンプト設定(本体は sheldon の pure プラグインで読み込む)
+zstyle :prompt:pure:git:stash show yes
+# AI エージェント経由のシェルでは git 処理をスキップする(Pure 公式推奨)
+if [[ -n $AI_AGENT$CLAUDECODE$CURSOR_AGENT ]]; then
+  zstyle :prompt:pure:git show no
+fi
 
 eval "$(sheldon source)"
 
@@ -25,5 +32,4 @@ eval "$(zoxide init zsh)"
 # "can't change option: zle" を出す既知の無害なバグ（zsh -f の素の環境でも再現）。
 # stderr を抑制して黙らせる。
 eval "$(fzf --zsh)" 2>/dev/null
-eval "$(starship init zsh)"
 eval "$(atuin init zsh)"   # 最後: Ctrl-R を atuin が上書き
