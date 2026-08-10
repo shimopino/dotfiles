@@ -1,0 +1,14 @@
+# シェル環境 / CLI ユーティリティ
+
+[tools]
+starship = "latest"
+atuin = "latest"
+zoxide = "latest"
+fzf = "latest"
+"cargo:eza" = "latest"
+"cargo:sheldon" = "latest"
+chezmoi = "latest"
+difftastic = "latest"
+fd = "latest"
+jq = "latest"
+ripgrep = "latest"

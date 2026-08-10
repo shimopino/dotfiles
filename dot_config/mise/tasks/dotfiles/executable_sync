@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#MISE description="Interactively sync chezmoi dotfiles: review drift, re-add/apply per file, commit & push"
+#MISE alias="dotfiles-sync"
+#MISE interactive=true
 set -euo pipefail
 
 # chezmoi 管理の dotfiles をインタラクティブに同期する

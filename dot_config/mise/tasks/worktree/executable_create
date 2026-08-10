@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#MISE description="Interactively create a managed git worktree under .worktrees and open it in Zed"
+#MISE alias="worktree-create"
+#MISE interactive=true
 set -euo pipefail
 
 # zsh の *(N) 相当。マッチなしのグロブを空展開にする

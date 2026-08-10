@@ -1,0 +1,7 @@
+# クラウド / インフラ関連ツール
+
+[tools]
+aws = "latest"
+terraform = "latest"
+aws-vault = "latest"
+# gcloud = "latest"

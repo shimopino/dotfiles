@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#MISE description="Muse Glimmer 30BとDFlashモデルをダウンロード"
+#MISE alias="muse-glimmer:download"
+
+set -euo pipefail
+
+task_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+source "$task_dir/_model.sh"
+
+mkdir -p "$MODEL_DIR"
+
+hf download "$HF_REPOSITORY" \
+  muse-glimmer-30B-kquant-17gb.gguf \
+  dflash-kquant.gguf \
+  --local-dir "$MODEL_DIR"

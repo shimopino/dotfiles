@@ -1,0 +1,34 @@
+# 生成AI 関連のツール
+
+[tools]
+"npm:@anthropic-ai/claude-code" = { version = "latest", npm_args = "--ignore-scripts=false" }
+"npm:@openai/codex" = "latest"
+"npm:@github/copilot" = "latest"
+"npm:@mizchi/readability" = "latest"
+"npm:ccusage" = "latest"
+"npm:agent-browser" = "latest"
+"npm:repomix" = "latest"
+# "npm:skillgrade" = "latest"
+"npm:@earendil-works/pi-coding-agent" = "latest"
+
+"github:anomalyco/opencode" = "latest"
+"github:microsoft/apm" = "latest"
+"github:microsoft/waza" = { version = "latest", rename_exe = "waza", tag_regex = "^azd-ext-microsoft-azd-waza_" }
+"github:rtk-ai/rtk" = "latest"
+
+herdr = "latest"
+
+# curl -fsSL https://browser-use.com/cli/install.sh | bash
+# "pipx:browser-use" = "latest"
+# https://github.com/docling-project/docling
+# "pipx:docling-slim" = "latest"
+
+# hermes-agent のみを管理して、環境変数などは別で扱うようにする
+# "pipx:hermes-agent" = "latest"
+
+# SkillSpector
+# "pipx:git+https://github.com/NVIDIA/SkillSpector.git@main" = "latest"
+
+# curl -L https://dmtrkovalenko.dev/install-fff-mcp.sh | bash
+# MCP 専用にエイリアスを作成
+# fff-mcp = { backend = "github:dmtrKovalenko/fff", version = "latest", matching = "fff-mcp" }

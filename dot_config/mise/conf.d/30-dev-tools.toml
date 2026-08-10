@@ -1,0 +1,27 @@
+# 開発ツール
+
+[tools]
+gh = "latest"
+# jujutsu = "latest"
+# worktrunk = "latest"
+
+"npm:playwright" = "latest"
+"npm:@playwright/cli" = "latest"
+"npm:@marp-team/marp-cli" = "latest"
+"npm:@evenrealities/even-terminal" = "latest"
+
+# 個別の環境を管理するための devbox ツールを使用する
+"github:jetify-com/devbox" = "latest"
+"github:modem-dev/hunk" = "latest"
+
+###########################
+### macOS 関連のツール ###
+###########################
+# mise plugin install xcode https://github.com/qasim/mise-xcode
+# Xcode 26.5 を指定
+# xcode = "26.5"
+
+# 必要に応じてSwift関連ツールも一緒に管理
+# swiftlint = "0.58.0" # 最新安定版を確認して調整
+# swiftformat = "0.56.0"
+# "spm:swiftlang/swift-format" = "latest"   # SPMツールも可

@@ -1,0 +1,9 @@
+# ローカルLLM 関連(llama.cpp / Hugging Face)
+
+[env]
+LLAMA_MODELS_DIR = "{{ env.HOME }}/.local/share/llama.cpp/models"
+
+[tools]
+pipx = { version = "latest", depends = "python" }
+# hf download コマンド(tasks/llm/ で使用)
+"pipx:huggingface-hub" = { version = "latest", depends = ["python", "pipx"] }
