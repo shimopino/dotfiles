@@ -11,7 +11,10 @@ claude = "latest"
 # "npm:skillgrade" = "latest"
 "npm:@earendil-works/pi-coding-agent" = "latest"
 
-"github:anomalyco/opencode" = "latest"
+# v2 は GitHub リリースが無いため GitHub backend では解決不可。npm で配布されている
+# パッケージ公開が新しいため minimumPackageAge 保護を解除するため allow_low_downloads が必要
+"npm:@opencode/cli" = { version = "latest", allow_low_downloads = true }
+
 "github:microsoft/apm" = "latest"
 "github:microsoft/waza" = { version = "latest", rename_exe = "waza", tag_regex = "^azd-ext-microsoft-azd-waza_" }
 "github:rtk-ai/rtk" = "latest"
