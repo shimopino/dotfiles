@@ -3,6 +3,12 @@
 
 [tools]
 sccache = "latest"
+# cargo install cargo-generate --locked 相当（locked は cargo バックエンドのデフォルト）
+"cargo:cargo-generate" = "latest"
+
+# 開発に必要になった場合に追加する
+# cargo install espup --locked
+# espup install
 
 [env]
 # Rustを使用するときのコンパイルキャッシュを設定する
