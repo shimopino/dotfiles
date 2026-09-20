@@ -21,6 +21,3 @@ export PATH="/Users/shimopino/.codeium/windsurf/bin:$PATH"
 
 # MCP設定
 export MCP_CONFIG_PATH="~/.cursor/mcp.json"
-
-# Rustを使用するときのコンパイルキャッシュを設定する
-export RUSTC_WRAPPER=/Users/shimopino/.cargo/bin/sccache

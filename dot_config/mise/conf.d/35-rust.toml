@@ -1,0 +1,10 @@
+# Rust ツールチェーン関連
+# rustup で管理する rustc/cargo 本体は対象外（sccache 等の周辺ツールを管理する）
+
+[tools]
+sccache = "latest"
+
+[env]
+# Rustを使用するときのコンパイルキャッシュを設定する
+# sccache 自体は上の [tools] で管理し、PATH に載った shim 経由で解決される
+RUSTC_WRAPPER = "sccache"
