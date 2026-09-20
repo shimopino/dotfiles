@@ -15,8 +15,6 @@ claude = "latest"
 "github:microsoft/apm" = "latest"
 "github:microsoft/waza" = { version = "latest", rename_exe = "waza", tag_regex = "^azd-ext-microsoft-azd-waza_" }
 "github:rtk-ai/rtk" = "latest"
-# latest だと versions-host のキャッシュ遅延で古い版に解決されることがあるためピン留め
-"github:ix-infrastructure/Ix" = "0.9.1"
 
 herdr = "latest"
 
