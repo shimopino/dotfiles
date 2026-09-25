@@ -4,6 +4,19 @@
 LLAMA_MODELS_DIR = "{{ env.HOME }}/.local/share/llama.cpp/models"
 
 [tools]
-pipx = { version = "latest", depends = "python" }
+python = "3.13"
+# NOTE: バージョン release(vX.Y.Z)にはバイナリが無く "latest" 解決が失敗するため
+# nightly ビルド(bXXXXX)をピン指定。更新は mise run llama.cpp:update
+"github:ggml-org/llama.cpp" = "b10679"
+ollama = "latest"
+# pipx: ツールのインストーラ(uv tool install)に使用。shim 経由で解決されるため宣言が必要
+uv = "latest"
+pipx = { version = "latest", depends = "python@3.13" }
 # hf download コマンド(tasks/llm/ で使用)
-"pipx:huggingface-hub" = { version = "latest", depends = ["python", "pipx"] }
+"pipx:huggingface-hub" = { version = "latest", depends = ["python@3.13", "pipx"] }
+
+# Apple Silicon 向け MLX ランタイム + MLX-LM サーバー(tasks/llm/*-mlx で使用)
+# mlx-lm の依存関係として MLX 本体もインストールされる
+"pipx:mlx-lm" = { version = "latest", depends = ["python@3.13", "pipx"] }
+
+"pipx:jundot/omlx" = { version = "v0.5.3", depends = ["python@3.13", "pipx"] }

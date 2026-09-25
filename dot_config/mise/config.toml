@@ -5,3 +5,7 @@ idiomatic_version_file_enable_tools = ["python"]
 [settings.github]
 credential_command = "gh auth token"
 github_attestations = false
+
+[tools]
+"llama.cpp" = { version = "latest", version_prefix = "b" }
+"glow" = "latest"

@@ -40,9 +40,10 @@
   "effortLevel": "high",
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
   "editorMode": "vim",
   "verbose": true,
   "preferredNotifChannel": "terminal_bell",
-  "effort": "high",
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "effort": "high"
 }

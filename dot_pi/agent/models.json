@@ -1,19 +1,55 @@
 {
   "providers": {
-    "llamacpp": {
-      "baseUrl": "http://localhost:8000/v1",
+    "llama-local": {
+      "baseUrl": "http://127.0.0.1:8080/v1",
       "api": "openai-completions",
       "apiKey": "dummy",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false
+      },
       "models": [
         {
-          "id": "agents-a1-4b-q4km",
-          "name": "Agents-A1-4B Q4_K_M (llama.cpp local)",
+          "id": "agents-a1-4B",
+          "name": "Agents-A1-4B (local)",
           "reasoning": true,
-          "contextWindow": 32768,
-          "maxTokens": 8192
+          "input": ["text", "image"],
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "kat-coder-v2.5-dev",
+          "name": "KAT-Coder-V2.5-Dev (local)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 196608,
+          "maxTokens": 32768
+        },
+        {
+          "id": "muse-glimmer-30B",
+          "name": "Muse Glimmer 30B (local)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 131072,
+          "maxTokens": 32768
+        },
+        {
+          "id": "nemotron-3.5-lightning-30B",
+          "name": "Nemotron 3.5 Lighting 30B (local)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 131072,
+          "maxTokens": 32768
+        },
+        {
+          "id": "qwen3.8-27b",
+          "name": "Qwen3.8 27B (local)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 131072,
+          "maxTokens": 32768
         }
       ]
     }
   }
 }
-

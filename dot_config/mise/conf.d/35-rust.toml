@@ -9,6 +9,9 @@ sccache = "latest"
 # 開発に必要になった場合に追加する
 # cargo install espup --locked
 # espup install
+# 必要に応じてプロジェクトごとに以下の設定を追加する
+# [env]
+# _.source = "{{ env.HOME }}/export-esp.sh"
 
 [env]
 # Rustを使用するときのコンパイルキャッシュを設定する
