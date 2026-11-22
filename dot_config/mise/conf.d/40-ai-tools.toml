@@ -19,7 +19,8 @@ copilot = "latest"
 "npm:@opencode/cli" = { version = "latest", allow_low_downloads = true }
 
 "github:microsoft/apm" = "latest"
-"github:microsoft/waza" = { version = "latest", rename_exe = "waza", tag_regex = "^azd-ext-microsoft-azd-waza_" }
+# azd 拡張用の azd-ext-microsoft-azd-waza_* タグを除外し、単体バイナリが付く v* タグだけを対象にする
+"github:microsoft/waza" = { version = "latest", rename_exe = "waza", version_prefix = "v" }
 "github:rtk-ai/rtk" = "latest"
 # latest だと versions-host のキャッシュ遅延で古い版に解決されることがあるためピン留め
 "github:ix-infrastructure/Ix" = "0.9.1"
